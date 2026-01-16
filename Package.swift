@@ -7,8 +7,8 @@ let package = Package(
         .macOS(.v14)
     ],
     products: [
-        .library(name: "ElementaryCSS", targets: ["ElementaryCSS"]),
-        .plugin(name: "ElementaryCSSGenerator", targets: ["ElementaryCSSGenerator"]),
+        .library(name: "ElementaryCSS", targets: ["ElementaryCSS"])
+        //.plugin(name: "ElementaryCSSGenerator", targets: ["ElementaryCSSGenerator"]),
     ],
     dependencies: [
         .package(url: "https://github.com/elementary-swift/elementary", from: "0.6.0")
@@ -44,7 +44,7 @@ let package = Package(
         .executableTarget(
             name: "ElementaryCSSGeneratorTool",
             dependencies: ["CSSDefinitions"],
-            path: "Tools/CSSGenerator"
+            path: "Tools/ElementaryCSSGenerator"
         ),
     ]
 )

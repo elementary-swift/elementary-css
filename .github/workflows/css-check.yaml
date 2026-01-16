@@ -1,0 +1,45 @@
+name: CSS Check
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "Sources/CSSDefinitions/**"
+      - "Tools/**"
+      - "Plugins/**"
+      - "css/**"
+  pull_request:
+    branches: [main]
+    paths:
+      - "Sources/CSSDefinitions/**"
+      - "Tools/**"
+      - "Plugins/**"
+      - "css/**"
+  workflow_dispatch:
+
+jobs:
+  check-css:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    container:
+      image: swift:6.2
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Generate CSS
+        run: ./scripts/generate-css.sh
+
+      - name: Check for uncommitted changes
+        run: |
+          if [ -n "$(git status --porcelain css/)" ]; then
+            echo "❌ Generated CSS is out of date!"
+            echo ""
+            echo "The committed css/elementary.css differs from what the generator produces."
+            echo "Please run: ./scripts/generate-css.sh"
+            echo ""
+            git diff css/
+            exit 1
+          fi
+          echo "✅ CSS is up to date"

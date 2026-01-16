@@ -1,6 +1,15 @@
 import CSSDefinitions
 import Elementary
 
+/// Creates a horizontal flex container.
+/// - Parameters:
+///   - justify: Horizontal alignment of items.
+///   - align: Vertical alignment of items.
+///   - gap: Spacing between items.
+///   - wrap: Whether items wrap to new lines.
+///   - inverse: If true, reverses the row direction.
+///   - tag: The HTML tag to use.
+///   - content: The container's content.
 @inlinable
 public func FlexRow<Tag: HTMLTagDefinition, Wrapped: HTML>(
     justify: CSSJustifyContent? = nil,
@@ -30,6 +39,15 @@ public func FlexRow<Tag: HTMLTagDefinition, Wrapped: HTML>(
     )
 }
 
+/// Creates a vertical flex container.
+/// - Parameters:
+///   - justify: Vertical alignment of items.
+///   - align: Horizontal alignment of items.
+///   - gap: Spacing between items.
+///   - wrap: Whether items wrap to new lines.
+///   - inverse: If true, reverses the column direction.
+///   - tag: The HTML tag to use.
+///   - content: The container's content.
 @inlinable
 public func FlexColumn<Tag: HTMLTagDefinition, Wrapped: HTML>(
     justify: CSSJustifyContent? = nil,

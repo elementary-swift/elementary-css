@@ -14,18 +14,22 @@ struct StyleSet: Sendable {
 }
 
 extension HTML where Tag: HTMLTrait.Attributes.Global {
+    /// Applies styles to the element.
     public func style(_ styles: ElementaryStyle...) -> _AttributedElement<Self> {
         StyleSet(styles: styles).style(self)
     }
 
+    /// Applies styles conditionally (e.g., on hover or focus).
     public func style(when condition: ElementaryStyle.Condition, _ styles: ElementaryStyle...) -> _AttributedElement<Self> {
         StyleSet(styles: styles, condition: condition).style(self)
     }
 
+    /// Applies styles from an array.
     public func style(contentsOf styles: [ElementaryStyle]) -> _AttributedElement<Self> {
         StyleSet(styles: styles).style(self)
     }
 
+    /// Applies styles from an array conditionally.
     public func style(when condition: ElementaryStyle.Condition, contentsOf styles: [ElementaryStyle]) -> _AttributedElement<Self> {
         StyleSet(styles: styles, condition: condition).style(self)
     }

@@ -1,11 +1,13 @@
-/// A class that generates CSS for the ElementaryUI framework
+/// Generates the CSS stylesheet required for ElementaryCSS to function.
+///
+/// Include the generated CSS in your HTML document's `<style>` tag or as an external stylesheet.
 public struct ElementaryCSSStyleSheet {
     private static let prelude = "box-sizing: border-box;"
 
-    // NOTE: This could take a config object in the future to customize the output
+    /// Creates a new stylesheet generator.
     public init() {}
 
-    /// Generates the complete CSS for the ElementaryUI framework
+    /// Generates the complete CSS stylesheet.
     public func generate() -> String {
         var css = ""
 

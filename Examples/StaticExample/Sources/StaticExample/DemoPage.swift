@@ -10,16 +10,17 @@ struct DemoPage: HTML {
             (title: "Card 3", description: "This is the third card."),
         ]
 
-        Block(.maxWidth(200), .margin(x: .auto), .fontFamily(.monospace)) {
-            Text("DEMO PAGE", tag: HTMLTag.h1.self)
-                .style(
-                    .fontSize(20),
-                    .fontWeight(.bold),
-                    .color(.secondary),
-                    .padding(y: 4)
-                )
+        Block(.maxWidth(800), .margin(x: .auto), .fontFamily(.monospace)) {
+            Heading(
+                .fontSize(24),
+                .fontWeight(.bold),
+                .color(.secondary),
+                .padding(y: 16)
+            ) {
+                "DEMO PAGE"
+            }
 
-            FlexColumn(gap: 3) {
+            FlexColumn(gap: 12) {
                 for card in cards {
                     Card(title: card.title, description: card.description)
                 }
@@ -37,13 +38,13 @@ struct Card: HTML {
             .background(.background),
             .borderWidth(.px(3)),
             .borderRadius(5),
-            .padding(4)
+            .padding(16)
         ) {
-            Paragraph(.fontSize(12), .fontWeight(.bold), .color(.primary)) {
-                Text(title)
+            Paragraph(.fontSize(.em(1.5)), .fontWeight(.bold), .color(.primary)) {
+                title
             }
-            Paragraph(.fontSize(8)) {
-                Text(description, .color(.secondary))
+            Paragraph(.fontSize(.em(1.2)), .color(.secondary)) {
+                description
             }
         }.style(
             when: .hover,

@@ -14,16 +14,13 @@ public func Block<Tag: HTMLTagDefinition, Wrapped: HTML>(
 }
 
 @inlinable
-public func Text<Tag: HTMLTagDefinition>(
-    _ text: String,
+public func Inline<Tag: HTMLTagDefinition, Wrapped: HTML>(
     _ styles: ElementaryStyle...,
-    tag: Tag.Type = HTMLTag.span.self
-) -> HTMLElement<Tag, HTMLText> where Tag: HTMLTrait.Paired {
-    HTMLElement(
-        .class(styles.classNames()),
-        .style(styles.styleValues())
-    ) {
-        text
+    tag: Tag.Type = HTMLTag.span.self,
+    @HTMLBuilder content: () -> Wrapped
+) -> HTMLElement<Tag, Wrapped> where Tag: HTMLTrait.Paired {
+    Tag.makeStyledElement(styles) {
+        content()
     }
 }
 
@@ -38,15 +35,13 @@ public func Paragraph<Tag: HTMLTagDefinition, Wrapped: HTML>(
     }
 }
 
-extension HTMLElement {
-    static func styled(
-        _ styles: [ElementaryStyle],
-        @HTMLBuilder content: () -> Content
-    ) -> Self where Tag: HTMLTrait.Paired {
-        .init(
-            .class(styles.classNames()),
-            .style(styles.styleValues()),
-            content: content
-        )
+@inlinable
+public func Heading<Tag: HTMLTagDefinition, Wrapped: HTML>(
+    _ styles: ElementaryStyle...,
+    tag: Tag.Type = HTMLTag.h1.self,
+    @HTMLBuilder content: () -> Wrapped
+) -> HTMLElement<Tag, Wrapped> where Tag: HTMLTrait.Paired {
+    Tag.makeStyledElement(styles) {
+        content()
     }
 }

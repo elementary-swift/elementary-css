@@ -48,7 +48,7 @@ extension HTMLTagDefinition {
 
 extension [ElementaryStyle] {
     @usableFromInline
-    borrowing func styleValues(condition: ElementaryStyle.Condition? = nil) -> [(key: String, value: String)] {
+    func styleValues(condition: ElementaryStyle.Condition? = nil) -> [(key: String, value: String)] {
         if let prefix = condition?.prefix {
             self.map { style in (key: style.property.prefixedVariable(prefix: prefix), value: style.value) }
         } else {
@@ -57,7 +57,7 @@ extension [ElementaryStyle] {
     }
 
     @usableFromInline
-    borrowing func classNames(condition: ElementaryStyle.Condition? = nil) -> [String] {
+    func classNames(condition: ElementaryStyle.Condition? = nil) -> [String] {
         if let prefix = condition?.prefix {
             [ElementaryCSSBaseClass] + self.map { style in style.property.className(prefix: prefix) }
         } else {

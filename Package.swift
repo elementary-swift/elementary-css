@@ -2,20 +2,20 @@
 import PackageDescription
 
 let package = Package(
-    name: "elementary-css",
+    name: "elementary-flow",
     platforms: [
         .macOS(.v14)
     ],
     products: [
-        .library(name: "ElementaryCSS", targets: ["ElementaryCSS"])
-        //.plugin(name: "ElementaryCSSGenerator", targets: ["ElementaryCSSGenerator"]),
+        .library(name: "ElementaryFlow", targets: ["ElementaryFlow"])
+        //.plugin(name: "ElementaryFlowCSSGenerator", targets: ["ElementaryFlowCSSGenerator"]),
     ],
     dependencies: [
         .package(url: "https://github.com/elementary-swift/elementary", from: "0.6.0")
     ],
     targets: [
         .target(
-            name: "ElementaryCSS",
+            name: "ElementaryFlow",
             dependencies: [
                 .product(name: "Elementary", package: "elementary"),
                 .target(name: "CSSDefinitions"),
@@ -23,28 +23,28 @@ let package = Package(
         ),
         .target(name: "CSSDefinitions"),
         .testTarget(
-            name: "ElementaryCSSTests",
-            dependencies: ["ElementaryCSS"]
+            name: "ElementaryFlowTests",
+            dependencies: ["ElementaryFlow"]
         ),
         .plugin(
-            name: "ElementaryCSSGenerator",
+            name: "ElementaryFlowCSSGenerator",
             capability: .command(
                 intent: .custom(
                     verb: "generate-css",
-                    description: "Generates the ElementaryCSS style sheet"
+                    description: "Generates the ElementaryFlow style sheet"
                 ),
                 permissions: [
                     .writeToPackageDirectory(reason: "Write generated CSS file.")
                 ]
             ),
             dependencies: [
-                "ElementaryCSSGeneratorTool"
+                "ElementaryFlowCSSGeneratorTool"
             ]
         ),
         .executableTarget(
-            name: "ElementaryCSSGeneratorTool",
+            name: "ElementaryFlowCSSGeneratorTool",
             dependencies: ["CSSDefinitions"],
-            path: "Tools/ElementaryCSSGenerator"
+            path: "Tools/ElementaryFlowCSSGenerator"
         ),
     ]
 )

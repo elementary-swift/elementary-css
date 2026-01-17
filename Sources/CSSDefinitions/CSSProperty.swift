@@ -11,16 +11,16 @@ package struct CSSProperty: Sendable {
     }
 
     package func className(prefix: String) -> String {
-        "\(ElementaryCSSBaseClass)\(prefix)\(variable)"
+        "\(ElementaryFlowBaseClass)\(prefix)\(variable)"
     }
 
     package var prefixedVariable: String { "--e-\(variable)" }
 }
 
-package let ElementaryCSSBaseClass = "_e"
-@usableFromInline package let ElementaryCSSFlexClass = "_ef"
-@usableFromInline package let ElementaryCSSBlockClass = "_eb"
-@usableFromInline package let ElementaryCSSInlineClass = "_ei"
+package let ElementaryFlowBaseClass = "_e"
+@usableFromInline package let ElementaryFlowFlexClass = "_ef"
+@usableFromInline package let ElementaryFlowBlockClass = "_eb"
+@usableFromInline package let ElementaryFlowInlineClass = "_ei"
 
 package extension CSSProperty {
     // Box Model

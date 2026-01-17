@@ -2,16 +2,16 @@ import Foundation
 import PackagePlugin
 
 @main
-struct ElementaryCSSGeneratorPlugin: CommandPlugin {
+struct ElementaryFlowCSSGeneratorPlugin: CommandPlugin {
     let command: String = "generate-css"
-    let defaultOutputPath: String = "elementary.css"
+    let defaultOutputPath: String = "elementary-flow.css"
 
     func performCommand(
         context: PackagePlugin.PluginContext,
         arguments: [String]
     ) async throws {
         // Find the executable target
-        let tool = try context.tool(named: "ElementaryCSSGeneratorTool")
+        let tool = try context.tool(named: "ElementaryFlowCSSGeneratorTool")
 
         // Parse command line arguments
         var argumentExtractor = ArgumentExtractor(arguments)

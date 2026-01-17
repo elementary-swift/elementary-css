@@ -1,7 +1,7 @@
-/// Generates the CSS stylesheet required for ElementaryCSS to function.
+/// Generates the CSS stylesheet required for ElementaryFlow to function.
 ///
 /// Include the generated CSS in your HTML document's `<style>` tag or as an external stylesheet.
-public struct ElementaryCSSStyleSheet {
+public struct ElementaryFlowStyleSheet {
     private static let prelude = "box-sizing: border-box;"
 
     /// Creates a new stylesheet generator.
@@ -23,7 +23,7 @@ public struct ElementaryCSSStyleSheet {
     }
 
     private func generateBaseClass(_ css: inout String) {
-        css += ".\(ElementaryCSSBaseClass) {\n"
+        css += ".\(ElementaryFlowBaseClass) {\n"
         css += "  \(Self.prelude)\n"
 
         for property in CSSProperty.all {
@@ -37,9 +37,9 @@ public struct ElementaryCSSStyleSheet {
         css += "}\n"
 
         // Element-specific base classes
-        css += ".\(ElementaryCSSFlexClass) { display: flex; }\n"
-        css += ".\(ElementaryCSSBlockClass) { display: block; }\n"
-        css += ".\(ElementaryCSSInlineClass) { display: inline; }\n"
+        css += ".\(ElementaryFlowFlexClass) { display: flex; }\n"
+        css += ".\(ElementaryFlowBlockClass) { display: block; }\n"
+        css += ".\(ElementaryFlowInlineClass) { display: inline; }\n"
     }
 
     private func generatePseudoClass(_ pseudoClass: CSSPseudoClass, _ css: inout String) {

@@ -63,7 +63,7 @@ extension [ElementaryStyle] {
 
     @usableFromInline
     func classNames(condition: ElementaryStyle.Condition? = nil, elementClass: String? = nil) -> [String] {
-        var classes = [ElementaryCSSBaseClass]
+        var classes = [ElementaryFlowBaseClass]
         if let elementClass {
             classes.append(elementClass)
         }

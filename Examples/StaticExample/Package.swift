@@ -13,13 +13,13 @@ let package = Package(
         )
     ],
     dependencies: [
-        .package(path: "../..")
+        .package(name: "elementary-flow", path: "../..")
     ],
     targets: [
         .executableTarget(
             name: "StaticExample",
             dependencies: [
-                .product(name: "ElementaryCSS", package: "elementary-css")
+                .product(name: "ElementaryFlow", package: "elementary-flow")
             ]
         )
     ]

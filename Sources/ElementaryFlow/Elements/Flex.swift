@@ -102,5 +102,5 @@ func createFlexElement<Tag: HTMLTagDefinition, Wrapped: HTML>(
         styles.append(.gap(gap))
     }
 
-    return Tag.makeStyledElement(styles, elementClass: ElementaryCSSFlexClass, content: wrapped)
+    return Tag.makeStyledElement(styles, elementClass: ElementaryFlowFlexClass, content: wrapped)
 }

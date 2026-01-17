@@ -1,10 +1,10 @@
-# ``ElementaryCSS``
+# ``ElementaryFlow``
 
-Type-safe CSS styling in Swift
+SwiftUI feel, CSS function.
 
 ## Overview
 
-Define layouts and styles right in your [ElementaryUI](https://github.com/elementary-swift/elementary-ui) or [Elementary](https://github.com/elementary-swift/elementary) components — no external build tools or separate stylesheets required. ElementaryCSS provides a Swift-native API that stays true to CSS, with type-checked properties, conditional styles for hover and focus states, and seamless composition with other CSS frameworks.
+Define layouts and styles right in your [ElementaryUI](https://github.com/elementary-swift/elementary-ui) or [Elementary](https://github.com/elementary-swift/elementary) components — no external build tools or separate stylesheets required. ElementaryFlow provides a Swift-native API that stays true to CSS, with type-checked properties, conditional styles for hover and focus states, and seamless composition with other CSS frameworks.
 
 ```swift
 struct DemoPage: HTML {

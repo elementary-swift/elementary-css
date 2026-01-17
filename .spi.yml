@@ -1,6 +1,6 @@
 version: 1
 builder:
   configs:
-    - documentation_targets: [ElementaryCSS]
+    - documentation_targets: [ElementaryFlow]
       custom_documentation_parameters:
         [--enable-experimental-overloaded-symbol-presentation]

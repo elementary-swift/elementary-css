@@ -3,7 +3,7 @@ package struct CSSPseudoClass {
     public let prefix: String
 
     public var className: String {
-        "\(ElementaryCSSBaseClass)\(prefix)"
+        "\(ElementaryFlowBaseClass)\(prefix)"
     }
 }
 

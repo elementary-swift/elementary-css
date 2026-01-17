@@ -12,7 +12,7 @@ public func Block<Tag: HTMLTagDefinition, Wrapped: HTML>(
     tag: Tag.Type = HTMLTag.div.self,
     @HTMLBuilder content: () -> Wrapped
 ) -> HTMLElement<Tag, Wrapped> where Tag: HTMLTrait.Paired {
-    Tag.makeStyledElement(styles, elementClass: ElementaryCSSBlockClass) {
+    Tag.makeStyledElement(styles, elementClass: ElementaryFlowBlockClass) {
         content()
     }
 }
@@ -28,7 +28,7 @@ public func Inline<Tag: HTMLTagDefinition, Wrapped: HTML>(
     tag: Tag.Type = HTMLTag.span.self,
     @HTMLBuilder content: () -> Wrapped
 ) -> HTMLElement<Tag, Wrapped> where Tag: HTMLTrait.Paired {
-    Tag.makeStyledElement(styles, elementClass: ElementaryCSSInlineClass) {
+    Tag.makeStyledElement(styles, elementClass: ElementaryFlowInlineClass) {
         content()
     }
 }
@@ -44,7 +44,7 @@ public func Paragraph<Tag: HTMLTagDefinition, Wrapped: HTML>(
     tag: Tag.Type = HTMLTag.p.self,
     @HTMLBuilder content: () -> Wrapped
 ) -> HTMLElement<Tag, Wrapped> where Tag: HTMLTrait.Paired {
-    Tag.makeStyledElement(styles, elementClass: ElementaryCSSBlockClass) {
+    Tag.makeStyledElement(styles, elementClass: ElementaryFlowBlockClass) {
         content()
     }
 }
@@ -60,7 +60,7 @@ public func Heading<Tag: HTMLTagDefinition, Wrapped: HTML>(
     tag: Tag.Type = HTMLTag.h1.self,
     @HTMLBuilder content: () -> Wrapped
 ) -> HTMLElement<Tag, Wrapped> where Tag: HTMLTrait.Paired {
-    Tag.makeStyledElement(styles, elementClass: ElementaryCSSBlockClass) {
+    Tag.makeStyledElement(styles, elementClass: ElementaryFlowBlockClass) {
         content()
     }
 }
